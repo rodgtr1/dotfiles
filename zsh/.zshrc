@@ -15,7 +15,9 @@ if [[ -d /usr/share/omarchy-zsh/functions ]]; then
   done
 fi
 
-# Add your own customizations below
+# ================================================
+#                 Oh My ZSH config
+# ================================================
 
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
@@ -23,6 +25,11 @@ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# ================================================
+#                 Helpers
+# ================================================
+
+# Create Python projects
 mkpy() {
   local name="$1"
   [[ -z "$name" ]] && { echo "Usage: mkpy <projectname>"; return 2; }
@@ -36,6 +43,15 @@ mkpy() {
 
   echo "✅ $name activated and ready"
 }
+
+# Run Claude prompt in terminal
+cpp() {
+  claude -p "$*"
+}
+
+# ================================================
+#                 Inits
+# ================================================
 
 eval "$(starship init zsh)"
 
