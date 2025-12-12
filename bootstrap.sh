@@ -12,12 +12,18 @@ MODULES=(
     hypr
     ghostty
     vscode
+    wezterm
 )
 
 # Arch packages needed for your setup
 PACKAGES_ARCH=(
     stow
     omarchy-zsh
+)
+
+# AUR packages (installed via yay)
+PACKAGES_AUR=(
+    wezterm-git
 )
 
 BACKUP_SUFFIX=".bak.$(date +%s)"
@@ -42,6 +48,26 @@ install_packages() {
     else
         echo "⚠️ This script is tuned for Omarchy (Arch)."
     fi
+}
+
+
+# -------------------------------------------------
+# Install AUR Packages
+# -------------------------------------------------
+install_aur_packages() {
+    if [[ ${#PACKAGES_AUR[@]} -eq 0 ]]; then
+        return
+    fi
+
+    echo "📦 Installing AUR packages…"
+
+    if ! command -v yay &>/dev/null; then
+        echo "⚠️ yay not found. Skipping AUR packages: ${PACKAGES_AUR[*]}"
+        echo "   Install yay first to enable AUR support."
+        return
+    fi
+
+    yay -S --noconfirm "${PACKAGES_AUR[@]}"
 }
 
 
@@ -150,6 +176,7 @@ stow_modules() {
 echo "🚀 Bootstrapping your Omarchy + Zsh + Dotfiles environment…"
 
 install_packages
+install_aur_packages
 install_ohmyzsh
 install_omz_plugins
 setup_omarchy_zsh
