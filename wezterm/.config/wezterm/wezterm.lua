@@ -18,6 +18,22 @@ config.keys = {
     mods = 'CMD',
     action = wezterm.action.CloseCurrentPane { confirm = false },
   },
+  {
+    key = 'd',
+    mods = 'CMD',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'd',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  {
+    key = 'k',
+    mods = 'CMD',
+    action = wezterm.action.SendString 'clear\n',
+  },
+  
 }
 
 return config
