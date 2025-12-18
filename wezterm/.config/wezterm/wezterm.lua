@@ -3,20 +3,20 @@ local wezterm = require 'wezterm'
 local mux = wezterm.mux
 local action = wezterm.action
 
-wezterm.on('gui-startup', function(cmd)
-  local screen = wezterm.gui.screens().active
-  local ratio = 0.70
-  local width = screen.width * ratio
-  local height = screen.height * ratio
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():set_inner_size(width, height)
-  window:gui_window():set_position((screen.width - width) / 2, (screen.height - height) / 2)
-end)
+-- wezterm.on('gui-startup', function(cmd)
+--   local screen = wezterm.gui.screens().active
+--   local ratio = 0.70
+--   local width = screen.width * ratio
+--   local height = screen.height * ratio
+--   local tab, pane, window = mux.spawn_window(cmd or {})
+--   window:gui_window():set_inner_size(width, height)
+--   window:gui_window():set_position((screen.width - width) / 2, (screen.height - height) / 2)
+-- end)
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.font_size = 18
+config.font_size = 16
 config.line_height = 1.2
 config.color_scheme = 'Catppuccin Mocha'
 
