@@ -49,13 +49,21 @@ cpp() {
   claude -p "$*"
 }
 
+
+# ===============================================
+#                 Paths
+# ===============================================
+
+export PATH="$HOME/.local/bin:$PATH"
+
+
 # ================================================
 #                 Aliases
 # ================================================
 
 # Get current branch name
-alias bb = 'git rev-parse --abbrev-ref HEAD'
-alias k = 'kubectl'
+alias bb='git rev-parse --abbrev-ref HEAD'
+alias k='kubectl'
 
 # ================================================
 #                 Inits
@@ -63,3 +71,5 @@ alias k = 'kubectl'
 
 eval "$(starship init zsh)"
 
+
+. "$HOME/.local/share/../bin/env"
