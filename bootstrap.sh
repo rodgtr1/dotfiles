@@ -12,7 +12,6 @@ MODULES=(
     hypr
     ghostty
     vscode
-    wezterm
 )
 
 # Arch packages needed for your setup
@@ -67,7 +66,7 @@ install_aur_packages() {
         return
     fi
 
-    yay -S --noconfirm "${PACKAGES_AUR[@]}"
+    yay -S --needed --noconfirm "${PACKAGES_AUR[@]}"
 }
 
 
@@ -147,7 +146,7 @@ backup_conflicts() {
 
     # Detect conflicts via stow dry-run
     local conflicts
-    conflicts=$(stow -nv "$module" 2>&1 | awk '/existing target/ {print $NF}' || true)
+    conflicts=$(stow -nv "$module" 2>&1 | grep -o "over existing target [^ ]*" | awk '{print $4}' || true)
 
     for file in $conflicts; do
         backup_file "$HOME/$file"
