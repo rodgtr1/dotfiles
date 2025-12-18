@@ -12,6 +12,7 @@ MODULES=(
     hypr
     ghostty
     vscode
+    wezterm
 )
 
 # Arch packages needed for your setup
