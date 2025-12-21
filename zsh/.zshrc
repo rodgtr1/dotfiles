@@ -15,6 +15,9 @@ if [[ -d /usr/share/omarchy-zsh/functions ]]; then
   done
 fi
 
+# Load custom user functions
+[[ -f "$HOME/dotfiles/zsh/functions.zsh" ]] && source "$HOME/dotfiles/zsh/functions.zsh"
+
 # ================================================
 #                 Oh My ZSH config
 # ================================================
@@ -54,15 +57,18 @@ cpp() {
 #                 Paths
 # ===============================================
 
-export PATH="$HOME/.local/bin:$PATH"
-
+path=(
+  $HOME/.local/bin
+  $HOME/.cargo/bin
+  $path
+)
+export PATH
 
 # ================================================
 #                 Aliases
 # ================================================
 
 # Get current branch name
-alias bb='git rev-parse --abbrev-ref HEAD'
 alias k='kubectl'
 
 # ================================================

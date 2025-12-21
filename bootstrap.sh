@@ -12,7 +12,7 @@ MODULES=(
     hypr
     ghostty
     vscode
-    wezterm
+    zed
 )
 
 # Arch packages needed for your setup
@@ -23,7 +23,6 @@ PACKAGES_ARCH=(
 
 # AUR packages (installed via yay)
 PACKAGES_AUR=(
-    wezterm-git
 )
 
 BACKUP_SUFFIX=".bak.$(date +%s)"
