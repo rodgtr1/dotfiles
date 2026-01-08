@@ -76,6 +76,3 @@ alias k='kubectl'
 # ================================================
 
 eval "$(starship init zsh)"
-
-
-. "$HOME/.local/share/../bin/env"

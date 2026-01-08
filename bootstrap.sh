@@ -10,15 +10,18 @@ DOTFILES_DIR="$HOME/dotfiles"
 MODULES=(
     zsh
     hypr
+    waybar
     ghostty
     vscode
     zed
+    starship
 )
 
 # Arch packages needed for your setup
 PACKAGES_ARCH=(
     stow
     omarchy-zsh
+    zed
 )
 
 # AUR packages (installed via yay)
