@@ -15,6 +15,7 @@ MODULES=(
     vscode
     zed
     starship
+    k9s
 )
 
 # Arch packages needed for your setup
@@ -22,6 +23,8 @@ PACKAGES_ARCH=(
     stow
     omarchy-zsh
     zed
+    wl-clipboard
+    k9s
 )
 
 # AUR packages (installed via yay)
