@@ -63,6 +63,8 @@ path=(
 )
 export PATH
 
+export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+
 # ================================================
 #                 Aliases
 # ================================================
