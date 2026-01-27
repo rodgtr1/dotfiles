@@ -2,14 +2,14 @@
 # config-file = ?"~/.config/omarchy/current/theme/ghostty.conf"
 
 # Font
-# font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrains Mono Nerd Font"
+# font-family = "JetBrains Mono Medium"
 # font-style = Regular
 font-size = 14
 background-opacity = 0.8
 background-blur = true
 
 # Window
-# window-theme = ghostty 
 window-padding-x = 14
 window-padding-y = 14
 confirm-close-surface=false

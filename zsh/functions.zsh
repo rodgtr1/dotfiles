@@ -32,7 +32,5 @@ img2rounded () {
     "$output"
 }
 
-
 pbcopy() { wl-copy; }
 pbpaste() { wl-paste; }
-

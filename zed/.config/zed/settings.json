@@ -28,8 +28,8 @@
     "diagnostics": false,
     "metrics": false,
   },
-  "ui_font_size": 18,
-  "buffer_font_size": 18.0,
+  "ui_font_size": 19,
+  "buffer_font_size": 19.0,
   "theme": {
     "mode": "dark",
     "light": "One Light",
@@ -43,7 +43,7 @@
   },
   "languages": {
     "YAML": {
-      "format_on_save": "off"
-    }
+      "format_on_save": "off",
+    },
   },
 }

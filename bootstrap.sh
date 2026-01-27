@@ -25,6 +25,7 @@ PACKAGES_ARCH=(
     zed
     wl-clipboard
     k9s
+    bind
 )
 
 # AUR packages (installed via yay)
