@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 30,
+  "height": 36,
   "modules-left": ["custom/archicon", "hyprland/workspaces"],
   "modules-center": [
     "clock",
