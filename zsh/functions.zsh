@@ -32,5 +32,27 @@ img2rounded () {
     "$output"
 }
 
+svg2png() {
+  input="$1"
+  density="${2:-300}" # Default to 300 DPI if not provided
+  output="${input%.*}.png"
+
+  magick -background none -density "$density" "$input" "$output"
+}
+
+# Rotate 90° right (clockwise) -> file-rotated-r90.ext
+img2rotate-right() {
+  input="$1"
+  output="${input%.*}-rotated-r90.${input##*.}"
+  magick "$input" -auto-orient -rotate 90 "$output"
+}
+
+# Rotate 90° left (counter-clockwise) -> file-rotated-l90.ext
+img2rotate-left() {
+  input="$1"
+  output="${input%.*}-rotated-l90.${input##*.}"
+  magick "$input" -auto-orient -rotate -90 "$output"
+}
+
 pbcopy() { wl-copy; }
 pbpaste() { wl-paste; }
