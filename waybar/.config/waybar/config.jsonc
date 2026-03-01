@@ -120,8 +120,8 @@
   },
   "pulseaudio": {
     // 1. Add {volume}% so you see the number change while sliding
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
+    "format": "{volume}%",
+    "format-bluetooth": "{volume}%",
 
     // 2. Change click to Mute (much faster/more useful)
     "on-click": "pamixer -t",
@@ -130,6 +130,19 @@
 
     "scroll-step": 5,
     "format-muted": "Muted ",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""],
+    },
+  },
+  "pulseaudio#icon": {
+    "format": "{icon}",
+    "format-muted": "",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -202,6 +215,7 @@
     "tooltip-format": "Full Title: {title}\nArtist: {artist}\nAlbum: {album}",
     "player-icons": { "default": "", "spotify": "" },
     "status-icons": { "paused": "⏸" },
+    "format-stopped": "",
   },
   "group/audio": {
     "orientation": "horizontal",
@@ -210,6 +224,6 @@
     //   "children-class": "not-power",
     //   "transition-left-to-right": false,
     // },
-    "modules": ["pulseaudio", "pulseaudio/slider"],
+    "modules": ["pulseaudio", "pulseaudio/slider", "pulseaudio#icon"],
   },
 }

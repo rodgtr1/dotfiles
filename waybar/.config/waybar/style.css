@@ -134,18 +134,26 @@ tooltip {
  * ======================================================= */
 
 #mpris {
-    background-color: #1e1e2e;
     color: #a6e3a1;
+    font-weight: bold;
+}
 
+#mpris.playing,
+#mpris.paused {
+    background-color: #1e1e2e;
     padding: 0 15px;
     margin: 5px;
-
     border-radius: 20px;
-    font-weight: bold;
 }
 
 #mpris.paused {
     color: #9399b2;
+}
+
+#mpris.stopped {
+    padding: 0;
+    margin: 0;
+    min-width: 0;
 }
 
 /* =========================================================
@@ -174,7 +182,7 @@ tooltip {
 
 #pulseaudio {
     color: #cdd6f4;
-    padding-right: 2px;
+    padding-right: 10px;
     margin-right: 0;
     font-size: 12px;
 }

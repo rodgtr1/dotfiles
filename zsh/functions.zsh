@@ -4,6 +4,7 @@
 # Transcode any image to thumbnail-size JPG
 img2jpg-thumb() {
   magick $1 -resize 1536x\> -quality 95 -strip ${1%.*}.jpg
+  jpegoptim --max=95 --strip-all ${1%.*}.jpg
 }
 
 # Transcode any image to custom-size JPG
@@ -52,6 +53,34 @@ img2rotate-left() {
   input="$1"
   output="${input%.*}-rotated-l90.${input##*.}"
   magick "$input" -auto-orient -rotate -90 "$output"
+}
+
+tailscaleOff() {
+  sudo tee /usr/local/bin/tailscale-off >/dev/null <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+
+tailscale set --accept-dns=false || true
+tailscale down || true
+systemctl restart systemd-resolved
+echo "Tailscale: OFF (DNS restored)"
+EOF
+  sudo chmod +x /usr/local/bin/tailscale-off
+  echo "Installed: /usr/local/bin/tailscale-off"
+}
+
+tailscaleOn() {
+  sudo tee /usr/local/bin/tailscale-on >/dev/null <<'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+
+systemctl start tailscaled
+tailscale set --accept-dns=true || true
+tailscale up
+echo "Tailscale: ON"
+EOF
+  sudo chmod +x /usr/local/bin/tailscale-on
+  echo "Installed: /usr/local/bin/tailscale-on"
 }
 
 pbcopy() { wl-copy; }
