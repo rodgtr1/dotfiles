@@ -11,17 +11,8 @@ compinit
 # ===============================================
 # 2. LOAD OMARCHY DEFAULTS
 # ===============================================
-if [[ -d /usr/share/omarchy-zsh/conf.d ]]; then
-  for config in /usr/share/omarchy-zsh/conf.d/*.zsh; do
-    [[ -f "$config" ]] && source "$config"
-  done
-fi
-
-if [[ -d /usr/share/omarchy-zsh/functions ]]; then
-  for func in /usr/share/omarchy-zsh/functions/*.zsh; do
-    [[ -f "$func" ]] && source "$func"
-  done
-fi
+[[ -f /usr/share/omarchy-zsh/shell/zoptions ]] && source /usr/share/omarchy-zsh/shell/zoptions
+[[ -f /usr/share/omarchy-zsh/shell/all ]] && source /usr/share/omarchy-zsh/shell/all
 
 # ===============================================
 # 3. PLUGINS (Manual Loading)
