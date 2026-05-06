@@ -16,6 +16,7 @@
     font-size: 13px;
 }
 
+
 /* =========================================================
  * Module Containers
  * ======================================================= */
@@ -59,20 +60,22 @@
 }
 
 #custom-weather {
-  margin-right: 8px;
+    background-color: #313244;
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin: 5px 3px;
 }
 
-#bluetooth {
-    margin-right: 12px;
+#bluetooth,
+#network,
+#memory,
+#cpu {
+    background-color: #313244;
+    border-radius: 20px;
+    padding: 2px 10px;
+    margin: 5px 3px;
 }
 
-#network {
-    margin-right: 8px;
-}
-
-#memory {
-    margin-right: 3px;
-}
 
 #custom-expand-icon {
     margin-right: 18px;
@@ -140,10 +143,7 @@ tooltip {
 
 #mpris.playing,
 #mpris.paused {
-    background-color: #1e1e2e;
     padding: 0 15px;
-    margin: 5px;
-    border-radius: 20px;
 }
 
 #mpris.paused {
@@ -161,7 +161,7 @@ tooltip {
  * ======================================================= */
 
 #group-audio {
-    background-color: #1e1e2e;
+    background-color: #313244;
 
     padding: 0 10px;
     margin: 5px;
@@ -175,10 +175,6 @@ tooltip {
     background-color: transparent;
     margin-left: 0;
 }
-
-/* =========================================================
- * PulseAudio Text
- * ======================================================= */
 
 #pulseaudio {
     color: #cdd6f4;
@@ -218,3 +214,4 @@ tooltip {
     border: none;
     box-shadow: none;
 }
+

@@ -1,0 +1,105 @@
+[theme]
+# Available themes: catppuccin-mocha
+name = "catppuccin-mocha"
+# Background opacity: 0.0 (fully transparent) to 1.0 (fully opaque)
+opacity = 0.9
+
+[font]
+# Font family — use any monospace font installed on your system
+family = "Monospace"
+# Size in points
+size = 15
+# Bold text uses bright palette colors (like most terminals)
+bold_is_bright = true
+
+[cursor]
+# shape: block | ibeam | underline
+shape = "block"
+blink = true
+
+[window]
+# Inner padding around the terminal content (pixels)
+padding = 8
+
+[behavior]
+# Lines of scrollback (-1 for unlimited)
+scrollback_lines = 10000
+# Scroll to bottom when new output appears
+scroll_on_output = false
+# Scroll to bottom when you type
+scroll_on_keystroke = true
+# Clickable URLs
+allow_hyperlinks = true
+# Hide mouse cursor while typing
+mouse_autohide = true
+audible_bell = false
+
+[editor]
+# Wrap long lines in the editor (true = word wrap, false = horizontal scroll)
+word_wrap = true
+
+[[tasks]]
+name = "Undo last commit (keep changes)"
+cmd = "git reset --soft HEAD~1"
+
+[[tasks]]
+name = "Explain this code"
+cmd = "git diff HEAD | claude 'Explain what these changes do in plain English'"
+llm = "Explain what these changes do in plain English"
+
+[[tasks]]
+name = "Staged files code review"
+cmd = """git diff --staged | claude 'Review this staged diff like a senior engineer.
+
+Focus on:
+- performance: large folders, UI responsiveness
+- security: paths, permissions, reveal-in-finder
+- edge cases and failure modes
+- best practices / cleanup
+
+If it is good: say "✅ Good to ship".
+If not: list the top fixes and show the exact code changes.'
+"""
+
+llm = """Review this staged diff like a senior engineer.
+
+Focus on:
+- performance: large folders, UI responsiveness
+- security: paths, permissions, reveal-in-finder
+- edge cases and failure modes
+- best practices / cleanup
+
+If it is good: say "✅ Good to ship".
+If not: list the top fixes and show the exact code changes."""
+
+[[tasks]]
+name = "Performance security codebase review"
+
+cmd = """claude 'Perform a high-level review of this codebase. First inspect the repository structure and relevant files before giving recommendations.
+
+Focus on:
+
+1. Security - Look for common vulnerabilities such as injection risks, exposed secrets, unsafe APIs, and lack of input validation.
+
+2. Performance - Identify inefficient code, unnecessary computations, blocking operations, or poor use of resources.
+
+3. Best Practices - Check for adherence to language and framework conventions, clean architecture, modular design, naming consistency, and maintainability.
+
+Provide actionable recommendations and highlight any critical issues that should be addressed first. If possible, include examples or improved code snippets.'
+"""
+
+llm = """Perform a high-level review of this codebase. First inspect the repository structure and relevant files before giving recommendations.
+
+Focus on:
+
+1. Security - Look for common vulnerabilities such as injection risks, exposed secrets, unsafe APIs, and lack of input validation.
+
+2. Performance - Identify inefficient code, unnecessary computations, blocking operations, or poor use of resources.
+
+3. Best Practices - Check for adherence to language and framework conventions, clean architecture, modular design, naming consistency, and maintainability.
+
+Provide actionable recommendations and highlight any critical issues that should be addressed first. If possible, include examples or improved code snippets."""
+
+[[tasks]]
+name = "stash pull pop"
+cmd = "git stash && git pull && git stash pop"

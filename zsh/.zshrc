@@ -4,6 +4,7 @@
 # ===============================================
 # 1. CORE ZSH CONFIG (Fixes fzf issue)
 # ===============================================
+unsetopt PROMPT_CR
 # Initialize completion engine BEFORE Omarchy loads
 autoload -Uz compinit
 compinit
@@ -73,3 +74,10 @@ eval "$(starship init zsh)"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/travis/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# bun completions
+[ -s "/home/travis/.bun/_bun" ] && source "/home/travis/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
