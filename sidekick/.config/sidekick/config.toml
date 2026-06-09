@@ -2,13 +2,13 @@
 # Available themes: catppuccin-mocha
 name = "catppuccin-mocha"
 # Background opacity: 0.0 (fully transparent) to 1.0 (fully opaque)
-opacity = 0.9
+opacity = 0.85
 
 [font]
 # Font family — use any monospace font installed on your system
-family = "Monospace"
+family = "JetBrainsMono Nerd Font Mono"
 # Size in points
-size = 15
+size = 14
 # Bold text uses bright palette colors (like most terminals)
 bold_is_bright = true
 
@@ -35,6 +35,7 @@ mouse_autohide = true
 audible_bell = false
 
 [editor]
+file_manager_open = "builtin" # or "nvim"
 # Wrap long lines in the editor (true = word wrap, false = horizontal scroll)
 word_wrap = true
 

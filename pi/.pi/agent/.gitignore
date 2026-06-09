@@ -1,0 +1,7 @@
+auth.json
+trust.json
+settings.json
+sessions/
+extensions/*/node_modules/
+extensions/*/dist/
+extensions/*/.turbo/
